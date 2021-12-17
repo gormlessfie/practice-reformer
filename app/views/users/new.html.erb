@@ -39,6 +39,10 @@
 <%# Form using form_with %>
 
 <%= form_with model: @user do |form| %>
+  <% @user.errors.full_messages.each do |msg| %>
+    <%= msg %><br>
+  <% end %><br>
+
   <%= form.label :username, 'Your username here: ' %>
   <%= form.text_field :username, value: 'John Smith' %><br><br>
 
