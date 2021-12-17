@@ -1,0 +1,55 @@
+<!--
+  <%# Form using HTML %>
+
+  <form accept-charset='UTF-8' action='/users/<%= @user.id %>' method='post'>
+    <input type='hidden' name='_method' value='put'>
+    <input type='hidden' name='authenticity_token' value="<%= form_authenticity_token %>">
+
+    <label for='username'>User name: </label>
+    <input type='text' id='username' name='user[username]' value='<%= @user.username %>'><br><br>
+
+    <label for='email'>Email: </label>
+    <input type='email' id='email' name='user[email]' value='<%= @user.email %>'><br><br>
+
+    <label for='password'>Password: </label>
+    <input type='password' id='password' name='user[password]' value='<%= @user.password %>'><br><br>
+
+    <input type='submit' value='Submit'>
+  </form>
+-->
+
+
+<!--
+  <%# Form using form_tag %>
+
+  <%= form_tag(user_path(@user), method: :post) do %>
+    <input type='hidden' name='_method' value='put'>
+
+    <%= label_tag :username, 'Username: ' %>
+    <%= text_field_tag 'user[username]', value=@user.username %><br><br>
+
+    <%= label_tag :email, 'Email: ' %>
+    <%= email_field_tag 'user[email]', value=@user.email %><br><br>
+
+    <%= label_tag :password, 'Password: ' %>
+    <%= password_field_tag 'user[password]', value=@user.password %><br><br>
+
+    <%= button_tag 'Submit' %>
+  <% end%>
+-->
+
+  <%# Form using form_with %>
+
+  <%= form_with model: @user do |form| %>
+    <%= form.label :username, 'Your username here: ' %>
+    <%= form.text_field :username %><br><br>
+
+    <%= form.label :email, 'Your email here: ' %>
+    <%= form.email_field :email %><br><br>
+
+    <%= form.label :password, 'Your password here: ' %>
+    <%= form.password_field :password %><br><br>
+
+    <%= form.submit %>
+  <% end %>
+
