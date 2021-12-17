@@ -1,5 +1,5 @@
 # README
-
+This is part of the ruby on rails course. I am creating forms for use in Rails.
 This README would normally document whatever steps are necessary to get the
 application up and running.
 
